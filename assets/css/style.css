@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: 'Oswald';
+    font-size: 18px;
+
+}
+#main{
+    white-space: nowrap;
+}
+
+#header{
+    height: 50px;
+    background-color: #33bbff;
+    display: flex;
+
+}
+
+#logo img{
+   height: 50px;
+   padding-left: 20px;
+   padding-right: 50px;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   margin-left: 20px;
+}
+
+#nav{
+    display: inline-block;
+}
+#nav, .subnav{
+    list-style: none;
+}
+#nav>li{
+    display: inline-block;
+}
+
+#nav li{
+    position: relative;
+}
+
+#nav li:hover .subnav{
+    display: block;
+}
+
+#nav >li >a{
+    color: white;
+}
+
+#nav li a{
+    text-decoration: none;
+    line-height: 50px;
+    padding: 0 22px;
+    display: block;
+    border-radius: 8px;
+}
+
+#nav >li:hover> a,
+#nav .subnav li:hover a{
+    color: black;
+    background-color: #0099e6;
+}
+
+#nav .subnav{
+    display: none;
+    position: absolute;
+    top:100%;
+    left: 0;
+    background-color: #80d4ff;
+    max-height: 210px;
+    overflow-y:auto;
+    min-width: 160px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#nav .subnav a{
+    color: black;
+}
+
+.search{
+   display: flex;
+   align-items: center;
+   margin-right: 0;
+   
+}
+
+.search form{
+    display: flex;
+    margin: 0;
+    margin-left: 50px;
+}
+
+.search .search-input{
+   padding: 10px;
+   border: 1px solid #ddd;
+   outline: none;
+   border-radius: 8px;
+   margin-right: 10px;
+   font-size: 16px;
+}
+
+.search .search-input:hover{
+    border: 1px solid black;
+}
+
+.search .fa-magnifying-glass{
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    color: #333;
+    font-size: 19px;
+    cursor:pointer;
+}
+
+.search .fa-magnifying-glass:hover{
+    border: 1px solid black;
+
+}
+
+#slider{
+    min-height: 5000px;
+    background-color: #e6e6e6;
+}
+#content{
+}
+#footer{
+
+}
