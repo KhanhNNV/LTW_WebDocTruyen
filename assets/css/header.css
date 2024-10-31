@@ -10,6 +10,32 @@ html{
     font-size: 18px;
 
 }
+body{
+    min-height: 500px;
+}
+body::-webkit-scrollbar{
+    width: 10px;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #0099e6;
+    border-radius: 8px;
+}
+body::-webkit-scrollbar-track{
+    background-color: white;
+    border-radius: 8px;
+}
+
+.subnav::-webkit-scrollbar{
+    width: 10px;
+}
+.subnav::-webkit-scrollbar-thumb{
+    background-color: #0099e6;
+    border-radius: 8px;
+}
+.subnav::-webkit-scrollbar-track{
+    background-color: white;
+    border-radius: 8px;
+}
 #main{
     white-space: nowrap;
 }
@@ -48,11 +74,11 @@ html{
     display: block;
 }
 
-#nav >li >a{
+#nav >li >a,#login a{
     color: white;
 }
 
-#nav li a{
+#nav li a, #login a{
     text-decoration: none;
     line-height: 50px;
     padding: 0 22px;
@@ -61,7 +87,7 @@ html{
 }
 
 #nav >li:hover> a,
-#nav .subnav li:hover a{
+#nav .subnav li:hover a, #login:hover a{
     color: black;
     background-color: #0099e6;
 }
@@ -122,12 +148,19 @@ html{
 
 }
 
-#slider{
-    min-height: 5000px;
-    background-color: #e6e6e6;
+#login{
+    margin-left: auto;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
 }
-#content{
-}
-#footer{
 
+.fa-circle-user{
+    display: block;
+    margin-left: 10px;
 }
+#slider{
+    height: 250px;
+    background-color: grey;
+}
+
