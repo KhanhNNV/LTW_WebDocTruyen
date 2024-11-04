@@ -1,10 +1,12 @@
 #content{
     background-color: #ffe6f7;
     min-height: 100px;
-    width: 1200px;
-    margin-left: 50px;
+    width: 1000px;
+    /* margin-left: 50px; */
     overflow: auto;
     padding-bottom: 20px;
+    margin: auto;
+    margin-right: 0px;
 }
 
 #truyenmoi{
