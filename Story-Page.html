@@ -5,13 +5,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Story Page</title>
-
+    <!-- <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: #f0f0f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            max-width: 1200px; /* Để giới hạn kích thước tối đa cho các màn hình lớn */
+            display: flex;
+            flex-direction: column;
+        }
+        .header, .footer {
+            background-color: #ffda62;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            width: 500px;
+            
+        }
+        .content {
+            flex: 1;
+            background-color: #ffda62;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #333;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #d4d4dc;
+        }
+        .nav-buttons button {
+            background-color: #56d2d4;
+            border: none;
+            padding: 10px 20px;
+            color: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .nav-buttons .menu {
+            background-color: #333;
+            border-radius: 5px;
+            color: #fff;
+            padding: 5px;
+            font-size: 24px;
+        }
+        .suggestion {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            min-height: 200px;
+        }
+    </style>  -->
+    <link rel="stylesheet" href="./assets/css/header.css" />
+    <link rel="stylesheet" href="/assets/css/content.css">
     <link rel="stylesheet" href="./assets/fontawesome-free-6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/style-storypage.css">
+    <link rel="stylesheet" href="assets/css/style-storypage.css">
 </head>
 
 <body>
-    
+    <div id="header">
+        <div id="logo">
+            <img src="assets/picture/logo.png" alt="logo">
+        </div>
+        <ul id="nav">
+            <li><a href="#" class="">
+                    <i class="fa-solid fa-house"></i>
+                    Trang chủ
+                </a></li>
+            <li>
+                <a href="#" class="">
+                    <i class="fa-solid fa-tag"></i>
+                    Thể loại
+                    <i class="fa-solid fa-caret-down"></i>
+                </a>
+                <ul class="subnav">
+                    <li><a href="#" class="">Phiêu lưu</a></li>
+                    <li><a href="#" class="">Học đường</a></li>
+                    <li><a href="#" class="">Lãng mạn</a></li>
+                    <li><a href="#" class="">Giả tưởng</a></li>
+                    <li><a href="#" class="">Hành động</a></li>
+                    <li><a href="#" class="">Đời thường</a></li>
+                    <li><a href="#" class="">Kinh dị</a></li>
+                    <li><a href="#" class="">Hài hước</a></li>
+                </ul>
+
+            </li>
+            <li>
+                <a href="#" class="">
+                    <i class="fa-solid fa-heart"></i>
+                    Yêu thích
+                </a>
+            </li>
+            <li>
+                <a href="#" class="">
+                    <i class="fa-solid fa-eye"></i>
+                    Xem nhiều
+                </a>
+            </li>
+            <li>
+                <a href="#" class="">
+                    <i class="fa-solid fa-upload"></i>
+                    Mới đăng
+                </a>
+            </li>
+        </ul>
+
+        <div class="search">
+            <form>
+                <input class="search-input" type="search" placeholder="Tìm kiếm..." />
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </form>
+
+        </div>
+        <div id="login">
+            <a href="#" class="">Đăng ký/Đăng nhập<i class="fa-solid fa-circle-user"></i></a>
+
+        </div>
+    </div>
     <div class="container">
 
         <div>
@@ -71,19 +201,51 @@
             </ul>
         </div>
         <div class="clear"></div>
-        <div class="comment-section">
-            <div class="comment">
-                <i class="fa-solid fa-user"></i>
+        <form id="comment-form">
+            <div class="comment-section">
+                <div class="comment">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div id="write">
+                    <textarea id="comment-input" rows="5" cols="50" placeholder="Bình luận"></textarea>
+                </div>
+                <div id="actions">
+                    <button id="submit-button" type="submit"><i class="fa-solid fa-paper-plane"></i> Gửi</button>
+                    <!-- <button id="reset-button" type="reset">Reset</button> -->
+                </div>
             </div>
-            <div id="write">
-                <textarea rows="5" cols="50" placeholder="Bình luận"></textarea>
-            </div>
-            <div id="actions">
-                <button id="submit-button" type="submit"><i class="fa-solid fa-paper-plane"></i> Gửi</button> 
-                
-            </div>
+        </form>
+        <div id="comment-display">
+            <h5> <i>Danh Sách Bình Luận</i></h5>
+
         </div>
-        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            document.getElementById("comment-form").addEventListener("submit", function (event) {
+                event.preventDefault(); // Ngăn chặn hành động gửi mặc định của form
+
+                // Lấy nội dung từ ô nhập liệu
+                const commentInput = document.getElementById("comment-input");
+                const commentText = commentInput.value.trim();
+
+                // Kiểm tra nếu có nội dung mới hiển thị
+                if (commentText) {
+                    // Tạo một phần tử mới để hiển thị bình luận
+                    const commentDisplay = document.getElementById("comment-display");
+                    const newComment = document.createElement("div");
+                    newComment.className = "comment-item";
+                    newComment.textContent = commentText;
+
+                    // Thêm bình luận mới vào khu vực hiển thị
+                    commentDisplay.appendChild(newComment);
+
+                    // Xóa nội dung trong ô nhập liệu sau khi gửi
+                    commentInput.value = "";
+                }
+            });
+
+        </script>
+
     </div>
 </body>
 
