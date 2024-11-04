@@ -7,8 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Truyện</title>
     <link rel="stylesheet" href="/assets/css/intro.css">
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#includedHeader").load("header.html");
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#includedComment").load("comment.html");
+        });
+    </script>
 </head>
-<body bgcolor="#e0e0e0">
+<body >
+    <div id="includedHeader"></div>
     <!-- Main Content -->
     <div class="main-content">
         <!-- Left Column -->
@@ -27,9 +39,9 @@
         <div class="center-content">
             <div class="title"><h1>Wistoria: Wand and Sword</h1></div>
             <div class="buttons">
-                    <button><i class="fa-sharp-duotone fa-solid fa-list"></i><a href="#danhsach">Danh sách truyện</a></button>
-                    <button style="background-color: red;" >Yêu thích<i class="fa-sharp-duotone fa-solid fa-heart"></i></button>
-                    <button style="background-color: green;">Đọc từ đầu</button>
+                    <button><i class="fa-sharp-duotone fa-solid fa-list"></i><a href="#danhsach"> Danh sách truyện</a></button>
+                    <button style="background-color: red;" ><i class="fa-sharp-duotone fa-solid fa-heart"></i> Yêu thích</button>
+                    <button style="background-color: green;"> Đọc từ đầu</button>
             </div>
             <div class="summary">
                 <p style="border-bottom: 1px solid black;"><b>Tóm tắt nội dung:</b></p>
@@ -53,6 +65,6 @@
         <div>Chap truyện 4</div>
     </div>
 
-   
+    <div id="includedComment"></div>
 </body>
 </html>

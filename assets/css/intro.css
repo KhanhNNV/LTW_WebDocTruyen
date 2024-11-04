@@ -4,9 +4,7 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-}
+
 
 .main-content {
     width: 60%;
@@ -46,8 +44,18 @@ body {
     color: white;
     border-radius: 5px;
     cursor: pointer;
+    
 }
 
+.buttons button:hover{
+    text-align: center;
+    padding: 15px;
+    border: none;
+    background-color: #6bdcff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
 .chapter-list {
 
     padding: 20px;
@@ -77,18 +85,10 @@ body {
     font-size: 14;
     color: red;
 }
-.buttons button:hover{
-    text-align: center;
-    padding: 15px;
-    border: none;
-    background-color: #6bdcff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
+
 .buttons button a:link{
-color: white;
-text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
 .chapter-list div:hover{
     padding: 14px;
