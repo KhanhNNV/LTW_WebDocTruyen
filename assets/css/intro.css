@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.main-content {
+    width: 60%;
+    min-height: auto;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: white;
+    margin: 15px;
+}
+
+.left-column, .center-content, .right-column {
+    flex: 1;
+}
+
+.image-placeholder{
+    width: 220px;
+    height: 283px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.buttons {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.buttons button {
+    text-align: center;
+    padding: 10px;
+    border: none;
+    background-color: #6bdcff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chapter-list {
+
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    margin-left: 15px;
+    width: 60%;
+    min-height: auto;
+
+}
+
+.chapter-list div {
+    padding: 10px;
+    background-color: #4ac8ff;
+    color: white;
+    text-align: center;
+    border: 1px solid black;
+}
+.chapter-list p{
+    border-bottom: 1px solid black;
+}
+
+.title{
+    font-size: 14;
+    color: red;
+}
+.buttons button:hover{
+    text-align: center;
+    padding: 15px;
+    border: none;
+    background-color: #6bdcff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.buttons button a:link{
+color: white;
+text-decoration: none;
+}
+.chapter-list div:hover{
+    padding: 14px;
+    background-color: #4ac8ff;
+    color: white;
+    text-align: center;
+    border: 1px solid black;
+}
