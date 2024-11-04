@@ -69,10 +69,14 @@
     color: black;
 }
 
+#left-menu .subnav a:hover{
+    background-color: #33bbff;
+    color: black;
+}
+
 #left-menu .subnav {
     display: none; 
     padding-left: 20px; 
-    
 }
 
 #left-menu .dropdown-toggle i {
@@ -84,8 +88,8 @@
     margin-top: 5px;
 }
  #left-menu .subnav a{
-    color: black;
-    margin-left: 50px;
+    color: white;
+    margin-left: 10px;
     font-size: smaller;
  }
 
