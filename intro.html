@@ -12,16 +12,21 @@
         $(function () {
             $("#includedHeader").load("header.html");
         });
-    </script>
-    <script>
+        $(function () {
+            $("#includedLeftMenu").load("left-menu.html");
+        });
         $(function () {
             $("#includedComment").load("comment.html");
+        });
+        $(function () {
+            $("#includedFooter").load("footer.html");
         });
     </script>
 </head>
 <body >
     <div id="includedHeader"></div>
     <!-- Main Content -->
+    <div id="includedLeftMenu"></div>
     <div class="main-content">
         <!-- Left Column -->
         <div class="left-column">
@@ -59,12 +64,14 @@
     <!-- Chapter List -->
     <div class="chapter-list">
         <p size="14"><i class="fa-sharp-duotone fa-solid fa-list"></i><b><a name="danhsach">DANH SÁCH CHƯƠNG TRUYỆN</a></b></p>
-        <div>Chap truyện 1</div>
-        <div>Chap truyện 2</div>
-        <div>Chap truyện 3</div>
-        <div>Chap truyện 4</div>
+        <a href="Story-Page.html"><div>Chap truyện 1</div></a>
+        <a href="Story-Page.html"><div>Chap truyện 2</div></a>
+        <a href="Story-Page.html"><div>Chap truyện 3</div></a>
+        <a href="Story-Page.html"><div>Chap truyện 4</div></a>
+        <a href="Story-Page.html"><div>Chap truyện 5</div></a>
     </div>
 
     <div id="includedComment"></div>
+    <div id="includedFooter"></div>
 </body>
 </html>

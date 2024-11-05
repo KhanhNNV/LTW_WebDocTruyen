@@ -1,25 +1,22 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
 
 .main-content {
-    width: 60%;
     min-height: auto;
-    display: flex;
-    gap: 20px;
-    padding: 20px;
+    width: 1000px;
+    overflow: auto;
+    padding-bottom: 20px;
+    margin: auto;
     background-color: white;
-    margin: 15px;
+    padding: 20px;
+    display: flex;
+    gap: 10px;
 }
 
-.left-column, .center-content, .right-column {
-    flex: 1;
+.left-column{
+    flex: 0.4;
 }
-
+.center-content{
+    flex: 0.6;
+}
 .image-placeholder{
     width: 220px;
     height: 283px;
@@ -27,7 +24,6 @@
     margin-bottom: 15px;
     position: relative;
 }
-
 .buttons {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -57,26 +53,38 @@
     cursor: pointer;
 }
 .chapter-list {
-
+    /* min-height: auto;
+    width: 1000px;
+    overflow: auto;
+    padding-bottom: 20px;
+    margin: auto;
+    background-color: white;
     padding: 20px;
     display: flex;
+    gap: 10px; */
+
+    display: flex;
+    width: 1000px;
+    min-height: auto;
+    padding: 20px;
+    margin: auto;
     flex-direction: column;
     gap: 10px;
     background-color: #ffffff;
-    margin-top: 20px;
-    margin-left: 15px;
-    width: 60%;
-    min-height: auto;
-
 }
 
-.chapter-list div {
+.chapter-list a {
+    text-decoration: none;
+ }
+
+.chapter-list a div {
     padding: 10px;
     background-color: #4ac8ff;
     color: white;
     text-align: center;
     border: 1px solid black;
 }
+
 .chapter-list p{
     border-bottom: 1px solid black;
 }

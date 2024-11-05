@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Oswald:wght@200..700&display=swap');
+.container {
+    width: 100%;
+    padding:0 50px;
+}
+
 #header1 {
     height: 70px;
     text-align: center;
@@ -50,21 +56,15 @@
     margin: 20px 0;
 }
 
-.content {
+.container .content {
     min-height: 500px;
     background-color: aliceblue;
-    
-}
-.container {
-    width: 100%;
-    
-    margin: 0 auto;
-   
-    padding: 20px;
+    font-family: "EB Garamond", serif;
 }
 
+
 /* Định dạng cho nút điều hướng */
-.nav-buttons {
+.container .nav-buttons {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,21 +86,21 @@
 }
 
 /* Định dạng menu */
-.menu {
+.container .menu {
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
 /* Định dạng biểu tượng menu */
-.menu a i {
+.container .menu a i {
     font-size: 20px;
     color: #333;
     cursor: pointer;
 }
 
 /* Định dạng hộp chọn chương */
-.menu select {
+.container .menu select {
     font-size: 16px;
     padding: 5px;
     width: 120px; /* Cùng chiều rộng với các nút */
@@ -110,9 +110,4 @@
     outline: none;
     cursor: pointer;
 }
-.suggestion {
-    height: 200px;
-    background-color: #4CAF50;
-    margin-top: 20px; /* Thêm khoảng cách bên trên */
-    color: white;
-}
+

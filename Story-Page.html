@@ -13,16 +13,21 @@
         $(function () {
             $("#includedHeader").load("header.html");
         });
-    </script>
-    <script>
+        $(function () {
+            $("#includedLeftMenu").load("left-menu.html");
+        });
         $(function () {
             $("#includedComment").load("comment.html");
+        });
+        $(function () {
+            $("#includedFooter").load("footer.html");
         });
     </script>
 </head>
 
 <body>
     <div id="includedHeader"></div>
+    <div id="includedLeftMenu"></div>
     <div class="container">
 
         <div>
@@ -70,22 +75,13 @@
             </div>
             <button>Trang sau</button>
         </div>
-        <div class="suggestion">
-
-            Truyện đề xuất
-        </div>
-        <div>
-            <ul class="breadcrumb">
-                <li><a href="/">Home</a></li>
-                <li><a href="/truyen/ten-truyen">Tên truyện</a></li>
-                <li>Chap 1</li>
-            </ul>
-        </div>
+        
         <div class="clear"></div>
         
         
     </div> 
     <div id="includedComment"></div>
+    <div id="includedFooter"></div>
 </body>
 
 </html>
