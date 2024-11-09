@@ -51,6 +51,7 @@
     color: white;
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.2s ease-in-out;
 }
 .chapter-list {
     /* min-height: auto;
@@ -104,4 +105,5 @@
     color: white;
     text-align: center;
     border: 1px solid black;
+    transition: 0.2s ease-in-out;
 }
