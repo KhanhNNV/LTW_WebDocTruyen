@@ -1,3 +1,7 @@
+<?php
+    include("QL_taikhoan/config.php")
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

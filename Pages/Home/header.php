@@ -15,14 +15,14 @@
                 <i class="fa-solid fa-caret-down"></i>
             </a>
             <ul class="subnav">
-                <li><a href="#" class="">Phiêu lưu</a></li>
-                <li><a href="#" class="">Học đường</a></li>
-                <li><a href="#" class="">Lãng mạn</a></li>
-                <li><a href="#" class="">Giả tưởng</a></li>
-                <li><a href="#" class="">Hành động</a></li>
-                <li><a href="#" class="">Đời thường</a></li>
-                <li><a href="#" class="">Kinh dị</a></li>
-                <li><a href="#" class="">Hài hước</a></li>
+                <?php
+                // Lấy dữ liệu từ CSDL để hiển thị menu thể loại
+                $sql_TL = "SELECT * FROM category ORDER BY Ten_TL ASC";
+                $result_TL = mysqli_query($conn, $sql_TL);
+                while ($row_TL = mysqli_fetch_assoc($result_TL)) {
+                    echo '<li><a href="#" class="">'. $row_TL['Ten_TL']. '</a></li>';
+                }
+                ?>
             </ul>
 
         </li>
@@ -54,7 +54,6 @@
 
     </div>
     <div id="login">
-        <a href="#" class="">Đăng ký/Đăng nhập<i class="fa-solid fa-circle-user"></i></a>
-
+        <a href="../../QL_taikhoan/login.php" class="">Đăng ký/Đăng nhập<i class="fa-solid fa-circle-user"></i></a>
     </div>
 </div>

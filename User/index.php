@@ -1,17 +1,33 @@
-<link rel="stylesheet" href="../../assets/css/left-menu.css">
-<script src="../../assets/js/left-menu.js"></script>
-<div id="hamburger">
-    <button id="toggle-menu" class="toggle-button">
-        <i class="fa-solid fa-bars"></i>
-    </button>
-    <div id="left-menu">
-        <ul>
-            <li><a href="../../index.php" class="">
+<?php session_start(); 
+include("../QL_taikhoan/config.php");
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web đọc truyện</title>
+    <link rel="stylesheet" href="../assets/fontawesome-free-6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/header.css" />
+    <script src="../assets/js/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+    <!-- include header -->
+    <div id="header">
+        <div id="logo">
+            <img src="../assets/picture/logo.png" alt="logo">
+        </div>
+        <ul id="nav">
+            <li><a href="../index.php" class="">
                     <i class="fa-solid fa-house"></i>
                     Trang chủ
                 </a></li>
             <li>
-                <a href="#" class="dropdown-toggle">
+                <a href="#" class="">
                     <i class="fa-solid fa-tag"></i>
                     Thể loại
                     <i class="fa-solid fa-caret-down"></i>
@@ -47,14 +63,35 @@
                 </a>
             </li>
         </ul>
+
         <div class="search">
             <form>
                 <input class="search-input" type="search" placeholder="Tìm kiếm..." />
                 <i class="fa-solid fa-magnifying-glass"></i>
             </form>
+
         </div>
         <div id="login">
-            <a href="#" class="">Đăng ký/Đăng nhập<i class="fa-solid fa-circle-user"></i></a>
+            <a href="../../QL_taikhoan/logout.php" class=""><?php echo $_SESSION['login'] ?><i
+                    class="fa-solid fa-circle-user"></i></a>
         </div>
     </div>
-</div>
+
+    <div id="main">
+        <!-- include leftmenu -->
+        <?php include("../Pages/Home/left-menu.php") ?>
+
+        <!-- Slide show -->
+        <?php include("../Pages/Home/slideshow.php") ?>
+
+        <script src="../assets/js/slideshow.js"></script>
+        <!-- main-container -->
+        <?php include("../Pages/Home/main_container.php") ?>
+    </div>
+
+    <!-- include footer -->
+    <?php include("../Pages/Home/footer.php") ?>
+
+</body>
+
+</html>
