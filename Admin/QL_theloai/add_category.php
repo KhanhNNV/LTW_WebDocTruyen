@@ -15,10 +15,10 @@
       }
         $sql_insert = "INSERT INTO category (Ten_TL) VALUES ('$Ten_TL')";
         $result = mysqli_query($conn, $sql_insert);
-        $_SESSION['success_add'] = "Thêm thể loại thành công!";
+        $_SESSION["success_add"] = "Thêm thể loại thành công!";
         header('Location:../index.php');
         exit();
-      
+    
     }
 
 ?>

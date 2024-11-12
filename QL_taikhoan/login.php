@@ -121,7 +121,8 @@
             <input type="submit" id="login" name="login" value="Đăng Nhập">
         </form>
         <div class="footer">
-            <p><a href="#">Quên mật khẩu?</a>&ensp;Chưa có tài khoản? <a href="register.php">Đăng ký</a></p>
+            <p><a href="forgot_password.php">Quên mật khẩu?</a>&ensp;Chưa có tài khoản? <a href="register.php">Đăng
+                    ký</a></p>
         </div>
     </div>
 </body>

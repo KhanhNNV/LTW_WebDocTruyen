@@ -219,14 +219,14 @@ $count_ds = mysqli_num_rows($result_ds);
             </form>
         </div>
 
-        <?php  
-        if (isset($_SESSION['error_add'])) {
-            echo "<div class='message error'>" . $_SESSION['error_add'] . "</div>";
-            unset($_SESSION['error_add']); 
+        <?php
+        if (isset($_SESSION['./QL_theloai/add_category.php[error_add'])) {
+            echo "<div class='message error'>" . $_SESSION['./QL_theloai/add_category.php[error_add'] . "</div>";
+            unset($_SESSION['./QL_theloai/add_category.php[error_add']); 
         }
-        if (isset($_SESSION['success_add'])) {
-            echo "<div class='message success'>" . $_SESSION['success_add'] . "</div>";
-            unset($_SESSION['success_add']);  
+        if (isset($_SESSION["./QL_theloai/add_category.php['success_add']"]))  {
+            echo "<div class='message success'>".$_SESSION["./QL_theloai/add_category.php['success_add']"]." </div>";
+            unset($_SESSION["./QL_theloai/add_category.php['success_add']"]);  
         }
         ?>
 
