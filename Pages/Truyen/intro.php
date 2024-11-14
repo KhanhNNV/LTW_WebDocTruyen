@@ -1,3 +1,23 @@
+<?php 
+    include("../../QL_taikhoan/config.php");
+    if(isset($_GET['id'])){
+        $IDtruyen=$_GET['id'];
+        $kq=mysqli_query($conn,"SELECT * FROM truyen where IDtruyen=$IDtruyen");
+        $row=mysqli_fetch_array($kq);  
+
+        $category_id = $row['IDThe_loai'];
+        $kq2 = mysqli_query($conn,"SELECT Ten_TL FROM category WHERE Id_TL = $category_id");
+        $row2 = mysqli_fetch_array($kq2);
+
+        $kq3 = mysqli_query($conn,"SELECT * FROM chaptruyen");
+        $row3 = mysqli_fetch_array($kq3);
+
+        $IDtruyen=$row3['IDtruyen'];
+        $kq4=mysqli_query($conn,"SELECT ChapID,Tieu_de FROM chaptruyen WHERE IDtruyen=$IDtruyen");
+        
+
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,21 +41,19 @@
     <div class="main-content">
         <!-- Left Column -->
         <div class="left-column">
-            <div><img src="/assets/picture/images.jfif" alt="Ảnh truyện" class="image-placeholder"></div>
+            <div><img src="../../assets/picture/<?php echo $row['hinhanh']; ?>" alt="Ảnh truyện" class="image-placeholder"></div>
             <div class="story-info">
-                <p>-<i class="fa-sharp-duotone fa-solid fa-pen-to-square"></i>Tên khác: Bản hùng ca của trượng và kiếm
-                </p>
-                <p>-<i class="fa-sharp-duotone fa-solid fa-user"></i>Tác giả: Đang cập nhật</p>
-                <p>-<i class="fa-sharp-duotone fa-solid fa-star"></i>Thể loại: Action-Comedy-Drama-Fantasy-Manga</p>
-                <p>-<i class="fa-sharp-duotone fa-solid fa-bookmark"></i>Nhóm dịch: Đang cập nhật</p>
-                <p>-<i class="fa-sharp-duotone fa-solid fa-earth-americas"></i>Tình trạng: Đang chập nhật</p>
+                <p>-<i class="fa-sharp-duotone fa-solid fa-user"></i>Tác giả: <?php echo $row['Tac_gia'] ?></p>
+                <p>-<i class="fa-sharp-duotone fa-solid fa-star"></i>Thể loại: <?php echo $row2['Ten_TL'] ?></p>
+                <p>-<i class="fa-sharp-duotone fa-solid fa-earth-americas"></i>Tình trạng:<?php echo $row['Tinh_trang'] ?></p>
             </div>
+            
         </div>
 
         <!-- Center Content -->
         <div class="center-content">
             <div class="title">
-                <h1>Wistoria: Wand and Sword</h1>
+                <h1><?php echo $row['Ten_truyen']; ?></h1>
             </div>
             <div class="buttons">
                 <button><i class="fa-sharp-duotone fa-solid fa-list"></i><a href="#danhsach"> Danh sách
@@ -47,11 +65,7 @@
             <div class="summary">
                 <p style="border-bottom: 1px solid black;"><b>Tóm tắt nội dung:</b></p>
                 <p align="justify">
-                    Will Serfort thề ước với bạn thuở nhỏ là sẽ trở thành Magia Vander,
-                    là danh hiệu mạnh nhất đứng trên đỉnh của các pháp sư. Nhưng cậu lại
-                    không hề sử dụng được phép thuật dù phép có đơn giản đến đâu.
-                    Với kĩ năng sở trường là kiếm thuật,
-                    cậu sẽ đối đầu pháp sư để đặt được danh hiệu đó.
+                    <?php echo $row['Tom_tat_ND']; ?>
                 </p>
 
             </div>
@@ -61,21 +75,12 @@
     <div class="chapter-list">
         <p size="14"><i class="fa-sharp-duotone fa-solid fa-list"></i><b><a name="danhsach">DANH SÁCH CHƯƠNG
                     TRUYỆN</a></b></p>
-        <a href="Story-Page.php">
-            <div>Chap truyện 1</div>
-        </a>
-        <a href="Story-Page.php">
-            <div>Chap truyện 2</div>
-        </a>
-        <a href="Story-Page.php">
-            <div>Chap truyện 3</div>
-        </a>
-        <a href="Story-Page.php">
-            <div>Chap truyện 4</div>
-        </a>
-        <a href="Story-Page.php">
-            <div>Chap truyện 5</div>
-        </a>
+        <?php while($row4=mysqli_fetch_array($kq4)){ ?>
+            <a href="../Truyen/Story-Page.php?id=<?php echo $row4['ChapID']; ?>">
+                <div><?php echo $row4['Tieu_de']?></div>
+            </a>
+        <?php } ?>
+        
     </div>
 
     <!-- include comment -->

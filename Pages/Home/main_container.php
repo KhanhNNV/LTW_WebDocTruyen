@@ -8,7 +8,7 @@
         $hinhanh=mysqli_query($conn,$sqlhinhanh);
     ?>
     <div class="content">
-        <div class="truyenmoi">
+        <div class="format-khungtruyen">
             <div class="head">
                 <p class="title">Truyện mới cập nhật</p>
             </div>

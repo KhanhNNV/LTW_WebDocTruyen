@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="../../assets/css/content.css">
+<link rel="stylesheet" href="../../assets/css/timkiem.css">
 <link rel="stylesheet" href="../../assets/fontawesome-free-6.6.0/css/all.min.css">
 <script src="../../assets/js/jquery-3.7.1.min.js"></script>
 
@@ -7,11 +8,7 @@ include("../../QL_taikhoan/config.php");
 
 if (isset($_GET['timkiem'])) {
     $timkiem = $_GET['timkiem'];
-    
-    // Bảo vệ chống SQL Injection
-    $timkiem = mysqli_real_escape_string($conn, $timkiem);
-    
-    // Truy vấn tìm kiếm
+
     $sql_timkiem = "SELECT * FROM truyen WHERE Ten_truyen LIKE '%$timkiem%'";
     $query_timkiem = mysqli_query($conn, $sql_timkiem);
 }
@@ -25,9 +22,9 @@ if (isset($_GET['timkiem'])) {
     <script src="assets/js/slideshow.js"></script>
     <!-- main-container -->
     <div class="main-container">
-        <div class="content">
+        <div class="khungtruyen">
 
-            <div class="truyenmoi">
+            <div class="format-khungtruyen">
                 <div class="head">
                     <p class="title">Truyện tìm kiếm:</p>
                 </div>

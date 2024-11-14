@@ -1,3 +1,15 @@
+<?php 
+    include("../../QL_taikhoan/config.php");
+    if(isset($_GET['id'])){
+        $ChapID=$_GET['id'];
+        $kq=mysqli_query($conn,"SELECT * FROM chaptruyen where ChapID=$ChapID");
+        $row=mysqli_fetch_array($kq);
+        $IDtruyen=$row['IDtruyen'];
+        $kq2=mysqli_query($conn,"SELECT * FROM truyen where IDtruyen=$IDtruyen");
+        $row2=mysqli_fetch_array($kq2);
+        $kq3=mysqli_query($conn,"SELECT * FROM chaptruyen where IDtruyen=$IDtruyen");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,40 +31,42 @@
     <div class="container">
         <div>
             <ul class="breadcrumb">
-                <li><a href="/">Home</a></li>
-                <li><a href="/truyen/ten-truyen">Tên truyện</a></li>
-                <li>Chap 1</li>
+                <li><a href="../../User/index.php">Home</a></li>
+                <li><a href="../Truyen/intro.php?id=<?php echo $row2['IDtruyen']; ?>"><?php echo $row2['Ten_truyen'] ?></a></li>
+                <li><?php echo $row['Tieu_de']; ?></li>
             </ul>
         </div>
 
         <div id="header1">
-            Tiên Ngich<br>
-            Chương 1 : dsfdsb
+            <?php echo $row2['Ten_truyen']; ?>
+            <br>
+            <?php echo $row['Tieu_de']; ?>
         </div>
         <div class="nav-buttons">
             <button>Trang trước</button>
             <div class="menu">
-                <a href="#">
-                    <i class="fa-solid fa-bars"></i>
-                </a>
-                <select name="Chuong">
-                    <option>Chương 1</option>
-                    <option>Chương 2</option>
-                    <option>Chương 3</option>
-                    <option>Chương 4</option>
+                
+                <i class="fa-solid fa-bars"></i>
+
+                <select name="Chuong" onchange="window.location.href = '../Truyen/Story-Page.php?id=' + this.value;">
+                    <?php while($row3=mysqli_fetch_array($kq3)){ ?>
+                        <option value="<?php echo $row3['ChapID'] ?>"
+                        <?php if(isset($_GET['id'])&&$_GET['id']==$row3['ChapID']) echo 'selected="selected"'; ?>>
+                        <?php echo $row3['Tieu_de'] ;?></option>s
+                    <?php } ?>
                 </select>
             </div>
             <button>Trang sau</button>
         </div>
         <div class="content">
-            Nội dung truyện
+           <?php echo $row['Noi_dung']; ?>
         </div>
         <div class="nav-buttons">
             <button>Trang trước</button>
             <div class="menu">
-                <a href="#">
-                    <i class="fa-solid fa-bars"></i>
-                </a>
+
+                <i class="fa-solid fa-bars"></i>
+
                 <select name="Chuong">
                     <option>Chương 1</option>
                     <option>Chương 2</option>

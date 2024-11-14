@@ -57,7 +57,7 @@
 }
 
 .container .content {
-    min-height: 500px;
+    
     background-color: aliceblue;
     font-family: "EB Garamond", serif;
 }
@@ -103,11 +103,20 @@
 .container .menu select {
     font-size: 16px;
     padding: 5px;
-    width: 120px; /* Cùng chiều rộng với các nút */
+    width: auto; /* Cùng chiều rộng với các nút */
     height: 40px; /* Cùng chiều cao */
     border-radius: 5px;
     border: 1px solid #ddd;
     outline: none;
     cursor: pointer;
 }
+
+.container .content {
+    width: 100%;
+   min-height: 800px;
+   line-height: 1.6;
+   padding: 15px;
+    text-align: justify;
+}
+
 
