@@ -4,7 +4,7 @@
     <div class="image"><img src="../../assets/picture/logo.png" /></div>
     <div class="footer-content">
         <div class="left-footer">
-            <div class="content">
+            <div class="text-welcome">
                 Chào mừng bạn đến với website đọc truyện của chúng tôi!
                 Nơi đây, bạn sẽ tìm thấy một kho tàng các thể loại truyện phong phú,
                 từ tiểu thuyết lãng mạn đến truyện kỳ huyền bí, đáp ứng nhu cầu đọc của mọi độc giả.

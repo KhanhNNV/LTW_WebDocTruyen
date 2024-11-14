@@ -1,15 +1,21 @@
 <link rel="stylesheet" href="../../assets/css/content.css">
 <link rel="stylesheet" href="../../assets/css/wraper.css">
 
-<div id="main-container">
-    <div id="content">
-        <div id="truyenmoi">
+<div class="main-container">
+    <?php 
+        
+        $sqlhinhanh="select hinhanh from truyen";
+        $hinhanh=mysqli_query($conn,$sqlhinhanh);
+    ?>
+    <div class="content">
+        <div class="truyenmoi">
             <div class="head">
                 <p class="title">Truyện mới cập nhật</p>
             </div>
             <div class="truyen">
                 <div class="khung">
-                    <img src="../../assets/picture/danBoCau.jpg" />
+                     <?php $d=mysqli_fetch_array($hinhanh) ?>
+                    <img src="<?php echo $d['hinhanh'] ?>" />
                     <div class="tentruyen">
                         <a href='<?php header("Location: ../Truyen/intro.php") ?>' class='tenTruyen'>Đàn bồ câu</a>
                     </div>

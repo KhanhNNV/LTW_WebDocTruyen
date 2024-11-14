@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="../../assets/css/header.css" />
+
 <div id="header">
     <div id="logo">
         <img src="../../assets/picture/logo.png" alt="logo">
@@ -47,9 +48,12 @@
     </ul>
 
     <div class="search">
-        <form>
-            <input class="search-input" type="search" placeholder="Tìm kiếm..." />
-            <i class="fa-solid fa-magnifying-glass"></i>
+        <form action="../../Pages/Home/timkiem.php" method="get">
+            <input name="timkiem" class="search-input" type="search" placeholder="Tìm kiếm..." />
+            <button type="submit" >
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            
         </form>
 
     </div>

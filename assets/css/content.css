@@ -1,5 +1,5 @@
 
-#content{
+.content{
     min-height: 100px;
     width: 1000px;
     overflow: auto;
@@ -9,7 +9,7 @@
     background-color: #f2f2f2;
 }
 
-#truyenmoi{
+.truyenmoi{
     margin-bottom: 30px;
     overflow-y: auto;
     background-color: white;
