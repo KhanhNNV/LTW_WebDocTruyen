@@ -47,14 +47,6 @@
                 </a>
             </li>
         </ul>
-        <div class="search">
-            <form>
-                <input class="search-input" type="search" placeholder="Tìm kiếm..." />
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </form>
-        </div>
-        <div id="login">
-            <a href="#" class="">Đăng ký/Đăng nhập<i class="fa-solid fa-circle-user"></i></a>
-        </div>
+        
     </div>
 </div>

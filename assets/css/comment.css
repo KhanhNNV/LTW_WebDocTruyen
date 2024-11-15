@@ -1,8 +1,14 @@
 
 #comment-all{
-    width: 100%;
-    margin: 0 auto;
-    padding: 40px;
+    
+    display: flex;
+    width: 1000px;
+    min-height: auto;
+    padding: 20px;
+    margin: auto;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
 }
 
 .comment-section {
@@ -18,9 +24,10 @@
 #write{
     width: 100%;
 }
-#write textarea {
+#write input {
     width: 100%; /* Đặt kích thước hộp nhập liệu */
     resize: none;
+    height: 50px;
 }
 
 #actions {
@@ -42,12 +49,19 @@
 }
 
 #comment-display {
-    margin-top: 20px;
+    /* margin-top: 20px;
     padding: 10px;
     background-color:#ddd;
     border-radius: 2px;
     width: 1200px;
-    margin-left: 51px;
+    margin-left: 51px; */
+    display: flex;
+    min-height: auto;
+    padding: 20px;
+    
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
 
 }
 
@@ -72,4 +86,14 @@ h5{
     cursor: pointer;
     background-color: #4CAF50;
     color: white;
+}
+.khungComment {
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    margin: 10px 0; 
+    border-radius: 5px; 
+    background-color: #f9f9f9; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    font-size: 14px; 
+    line-height: 1.5; 
 }

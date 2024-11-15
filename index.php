@@ -16,7 +16,7 @@
 <body>
 
     <!-- include header -->
-    <?php include("./Pages/Home/header.php") ?>
+    <?php include("./Pages/Home/headerGuest.php") ?>
 
     <div id="main">
         <!-- include leftmenu -->

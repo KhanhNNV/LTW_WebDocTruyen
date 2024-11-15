@@ -9,13 +9,14 @@
         $kq2 = mysqli_query($conn,"SELECT Ten_TL FROM category WHERE Id_TL = $category_id");
         $row2 = mysqli_fetch_array($kq2);
 
-        $kq3 = mysqli_query($conn,"SELECT * FROM chaptruyen");
-        $row3 = mysqli_fetch_array($kq3);
-
-        $IDtruyen=$row3['IDtruyen'];
+        
         $kq4=mysqli_query($conn,"SELECT ChapID,Tieu_de FROM chaptruyen WHERE IDtruyen=$IDtruyen");
         
 
+         // Tăng lượt xem
+         $updateViewQuery = "UPDATE truyen SET view = view + 1 WHERE IDtruyen = $IDtruyen";
+         mysqli_query($conn, $updateViewQuery);
+  
     }
 ?>
 <!DOCTYPE html>
@@ -46,6 +47,7 @@
                 <p>-<i class="fa-sharp-duotone fa-solid fa-user"></i>Tác giả: <?php echo $row['Tac_gia'] ?></p>
                 <p>-<i class="fa-sharp-duotone fa-solid fa-star"></i>Thể loại: <?php echo $row2['Ten_TL'] ?></p>
                 <p>-<i class="fa-sharp-duotone fa-solid fa-earth-americas"></i>Tình trạng:<?php echo $row['Tinh_trang'] ?></p>
+                <p>-<i class="fa-solid fa-eye"></i>Lượt xem:<?php echo $row['view'] ?></p>
             </div>
             
         </div>
@@ -84,7 +86,26 @@
     </div>
 
     <!-- include comment -->
-    <?php include("comment.php")?>
+     <div id="comment-all">
+        <form id="comment-form" action="add_comment.php?id=<?php echo $IDtruyen; ?>" method="post">
+            <div class="comment-section">
+                <div class="comment">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div id="write">
+                <input type="text" name="noidung" placeholder="Nhập bình luận" id="write">
+                </div>
+                <div id="actions">
+                    <button id="submit-button" type="submit"><i class="fa-solid fa-paper-plane"></i> Gửi</button>
+                    <!-- <button id="reset-button" type="reset">Reset</button> -->
+                </div>
+            </div>
+        </form>
+        <?php 
+            include("comment.php");
+        ?>
+     </div>
+    
     <!-- include footer -->
     <?php include("../Home/footer.php")?>
 </body>

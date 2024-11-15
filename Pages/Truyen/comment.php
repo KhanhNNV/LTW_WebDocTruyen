@@ -1,47 +1,35 @@
-<link rel="stylesheet" href="../../assets/css/comment.csss">
-
+<link rel="stylesheet" href="../../assets/css/comment.css">
 <script src="../../assets/js/jquery-3.7.1.min.js"></script>
-<div id="comment-all">
-    <form id="comment-form">
-        <div class="comment-section">
-            <div class="comment">
-                <i class="fa-solid fa-user"></i>
-            </div>
-            <div id="write">
-                <textarea id="comment-input" rows="5" cols="50" placeholder="Bình luận"></textarea>
-            </div>
-            <div id="actions">
-                <button id="submit-button" type="submit"><i class="fa-solid fa-paper-plane"></i> Gửi</button>
-                <!-- <button id="reset-button" type="reset">Reset</button> -->
-            </div>
-        </div>
-    </form>
+<?php 
+    include("../../QL_taikhoan/config.php");
+    if(isset($_GET['id'])){
+        $IDtruyen=$_GET['id'];
+        $kq=mysqli_query($conn,"SELECT * FROM comments 
+        WHERE IDtruyen =$IDtruyen ORDER BY ID DESC" );
+        
+        
+        
+    }
+?>
+
+
+
+
     <div id="comment-display">
-        <h5> <i>Danh Sách Bình Luận</i></h5>
+        <h5> Danh Sách Bình Luận</h5>
+        <div>
+            <?php 
+            while($row=mysqli_fetch_array($kq)){ ?>
+                <div class="khungComment">
+                    <?php 
+                        $idUser = $row['Id_User'];
+                        $userQuery = mysqli_query($conn, "SELECT Ten_User FROM user WHERE Id_User = $idUser");
+                        $user = mysqli_fetch_array($userQuery);
+                        echo "<strong>" . $user['Ten_User'] . ":</strong> " . $row['content'] . "<br/>";
+                    ?>
+                </div>
+            <?php } ?>
+        </div>
 
     </div>
-    <script>
-    document.getElementById("comment-form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Ngăn chặn hành động gửi mặc định của form
 
-        // Lấy nội dung từ ô nhập liệu
-        const commentInput = document.getElementById("comment-input");
-        const commentText = commentInput.value.trim();
-
-        // Kiểm tra nếu có nội dung mới hiển thị
-        if (commentText) {
-            // Tạo một phần tử mới để hiển thị bình luận
-            const commentDisplay = document.getElementById("comment-display");
-            const newComment = document.createElement("div");
-            newComment.className = "comment-item";
-            newComment.textContent = commentText;
-
-            // Thêm bình luận mới vào khu vực hiển thị
-            commentDisplay.appendChild(newComment);
-
-            // Xóa nội dung trong ô nhập liệu sau khi gửi
-            commentInput.value = "";
-        }
-    });
-    </script>
-</div>

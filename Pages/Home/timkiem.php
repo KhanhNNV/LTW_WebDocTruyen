@@ -13,7 +13,7 @@ if (isset($_GET['timkiem'])) {
     $query_timkiem = mysqli_query($conn, $sql_timkiem);
 }
 ?>
- <?php include("../../Pages/Home/header.php") ?>
+    <?php include("../../Pages/Home/header.php") ?>
 
 
     <!-- include leftmenu -->
@@ -35,10 +35,6 @@ if (isset($_GET['timkiem'])) {
                         <img src="../../assets/picture/<?php echo $row['hinhanh']; ?>" />
                         <div class="tentruyen">
                             <a href="../../Pages/Truyen/intro.php?id=<?php echo $row['IDtruyen']; ?>" class="tenTruyen"><?php echo $row['Ten_truyen']; ?></a>
-                        </div>
-                        <div class="tenChuong">
-                        <a href="#" class="tenChuong">Chương 1</a>
-                        
                         </div>
                     </div>
                 <?php } ?>
