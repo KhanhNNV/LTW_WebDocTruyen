@@ -1,0 +1,103 @@
+
+#comment-all{
+    
+    display: flex;
+    width: 1000px;
+    min-height: auto;
+    padding: 20px;
+    margin: auto;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
+}
+
+.comment-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.comment .fa-user{
+    font-size: 50px;
+}
+
+#write{
+    width: 100%;
+}
+#write input {
+    width: 100%; /* Đặt kích thước hộp nhập liệu */
+    resize: none;
+    height: 50px;
+}
+
+#actions {
+    display: flex;
+    gap: 10px; /* Khoảng cách giữa các nút */
+}
+
+#submit-button, #reset-button {
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#submit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+#submit-button:hover {
+    background-color: #ff6699;
+    color: white;
+}
+
+#comment-display {
+    /* margin-top: 20px;
+    padding: 10px;
+    background-color:#ddd;
+    border-radius: 2px;
+    width: 1200px;
+    margin-left: 51px; */
+    display: flex;
+    min-height: auto;
+    padding: 20px;
+    
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
+
+}
+
+.comment-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 4px;
+}
+h5{
+    color: red;
+}
+
+#includedComment button {
+    padding: 10px;
+    font-size: 16px;
+    width: 120px; /* Cùng chiều rộng */
+    height: 40px; /* Cùng chiều cao */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+}
+.khungComment {
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    margin: 10px 0; 
+    border-radius: 5px; 
+    background-color: #f9f9f9; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    font-size: 14px; 
+    line-height: 1.5; 
+}

@@ -1,0 +1,141 @@
+
+.main-content {
+    min-height: auto;
+    width: 1000px;
+    overflow: auto;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin: auto;
+}
+
+.left-column{
+    flex: 0.4;
+    margin-left: 17px;
+}
+.center-content{
+    flex: 0.6;
+    margin-right: 17px;
+}
+.image-placeholder{
+    width: 220px;
+    height: 283px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+
+.chapter-list {
+    display: flex;
+    width: 1000px;
+    min-height: auto;
+    padding: 20px;
+    margin: auto;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
+}
+
+.chapter-list a {
+    text-decoration: none;
+ }
+
+ .chapter-list a div {
+    background-color: #4ac8ff;
+    color: white;
+    text-align: center;
+    border: 2px solid #007bff; /* Thêm viền xung quanh div */
+    border-radius: 5px; /* Bo góc cho viền nếu muốn */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ cho viền */
+}
+
+.chapter-list p{
+    border-bottom: 1px solid black;
+}
+
+.title{
+    font-size: 14;
+    color: red;
+}
+
+.buttons button a:link{
+    color: white;
+    text-decoration: none;
+}
+
+.chapter-list div:hover {
+    background-color: pink;  /* Thay đổi màu nền khi hover */
+    border-color: pink; /* Chỉ thay đổi màu viền mà không làm thay đổi kích thước */
+    /* Không thay đổi padding hoặc border */
+}
+.buttons {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#ds{
+    text-align: center;
+    padding: 10px;
+    border: 2px solid black;
+    background-color: #6bdcff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+#like {
+    text-align: center;
+    padding: 10px;
+    border: 2px solid black;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#chap1 {
+    text-align: center;
+    padding: 10px;
+    border: 2px solid black;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#chap1 a{
+    text-decoration: none;
+    color: white;
+}
+ #ds:hover{
+    text-align: center;
+    border: 2px solid black;
+    background-color:pink;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#like:hover{
+    text-align: center;
+    border: 2px solid black;
+    background-color:orange;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#chap1:hover{
+    text-align: center;
+    border: 2px solid black;
+    background-color:greenyellow;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
