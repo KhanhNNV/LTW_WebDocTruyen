@@ -15,7 +15,9 @@
         $kq_user = mysqli_query($conn, $sql_user);
         $count_user = mysqli_num_rows($kq_user);
         if ($count_user > 0) {
+            $row_user = mysqli_fetch_assoc($kq_user);
             $_SESSION['login'] = $taikhoan_user;
+            $_SESSION['user_id'] = $row_user['Id_User'];
             header('Location: ../../../User/index.php');
         }
         elseif ($count_admin > 0) {
@@ -37,6 +39,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng Nhập</title>
+    <link src="../assets/js/jquery-3.7.1.min.js">
     <style>
     body {
         background-color: #f1f1f1;
@@ -65,7 +68,7 @@
 
     input[type="text"],
     input[type="password"] {
-        width: 100%;
+        width: 95%;
         padding: 10px;
         margin: 5px 0 15px;
         border: 1px solid #ccc;

@@ -59,6 +59,8 @@ body::-webkit-scrollbar-track{
 
 #nav{
     display: inline-block;
+    margin-left: 120px;
+    margin-right: 10px;
 }
 #nav, .subnav{
     list-style: none;
@@ -114,6 +116,7 @@ body::-webkit-scrollbar-track{
    display: flex;
    align-items: center;
    margin-right: 0;
+  
    
 }
 
@@ -143,6 +146,11 @@ body::-webkit-scrollbar-track{
     color: #333;
     font-size: 19px;
     cursor:pointer;
+}
+
+.search form button[type="submit"]{
+    border-radius: 8px;
+    border: 1px solid #ddd;
 }
 
 .search .fa-magnifying-glass:hover{

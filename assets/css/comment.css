@@ -47,6 +47,10 @@
     background-color: #4CAF50;
     color: white;
 }
+#submit-button:hover {
+    background-color: #ff6699;
+    color: white;
+}
 
 #comment-display {
     /* margin-top: 20px;

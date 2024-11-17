@@ -4,8 +4,8 @@
     include("../../QL_taikhoan/config.php");
     if(isset($_GET['id'])){
         $IDtruyen=$_GET['id'];
-        $kq=mysqli_query($conn,"SELECT * FROM comments 
-        WHERE IDtruyen =$IDtruyen ORDER BY ID DESC" );
+        $kq=mysqli_query($conn,"SELECT * FROM comment 
+        WHERE IDtruyen =$IDtruyen ORDER BY IDComment DESC" );
         
         
         
@@ -25,7 +25,7 @@
                         $idUser = $row['Id_User'];
                         $userQuery = mysqli_query($conn, "SELECT Ten_User FROM user WHERE Id_User = $idUser");
                         $user = mysqli_fetch_array($userQuery);
-                        echo "<strong>" . $user['Ten_User'] . ":</strong> " . $row['content'] . "<br/>";
+                        echo "<strong>" . $user['Ten_User'] . ":</strong> " . $row['TextComment'] . "<br/>";
                     ?>
                 </div>
             <?php } ?>

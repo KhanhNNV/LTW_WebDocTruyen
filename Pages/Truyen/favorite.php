@@ -4,14 +4,16 @@
 <script src="../../assets/js/jquery-3.7.1.min.js"></script>
 
 <?php session_start(); 
-include("../../QL_taikhoan/config.php");
+    include("../../QL_taikhoan/config.php");
+    
+    $user_id = $_SESSION['user_id'];
 
-if (isset($_GET['timkiem'])) {
-    $timkiem = $_GET['timkiem'];
-
-    $sql_timkiem = "SELECT * FROM truyen WHERE Ten_truyen LIKE '%$timkiem%'";
-    $query_timkiem = mysqli_query($conn, $sql_timkiem);
-}
+    // Truy vấn lấy danh sách truyện yêu thích
+    $sql = "SELECT truyen.IDtruyen, truyen.Ten_truyen, truyen.hinhanh FROM truyen 
+            JOIN yeuthich ON truyen.IDtruyen = yeuthich.IDtruyen 
+            WHERE yeuthich.Id_User = '$user_id'";
+    $kq = mysqli_query($conn, $sql);
+    
 ?>
     <?php include("../../Pages/Home/header.php") ?>
 
@@ -26,10 +28,10 @@ if (isset($_GET['timkiem'])) {
 
             <div class="format-khungtruyen">
                 <div class="head">
-                    <p class="title">Truyện tìm kiếm:</p>
+                    <p class="title">Truyện yêu thích:</p>
                 </div>
                 <div class="truyen">
-                <?php while ($row = mysqli_fetch_array($query_timkiem)) { ?>
+                <?php while ($row = mysqli_fetch_array($kq)) { ?>
                     <div class="khung">
                          
                         <img src="../../assets/picture/<?php echo $row['hinhanh']; ?>" />

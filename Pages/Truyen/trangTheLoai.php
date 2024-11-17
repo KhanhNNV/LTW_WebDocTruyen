@@ -6,11 +6,10 @@
 <?php session_start(); 
 include("../../QL_taikhoan/config.php");
 
-if (isset($_GET['timkiem'])) {
-    $timkiem = $_GET['timkiem'];
-
-    $sql_timkiem = "SELECT * FROM truyen WHERE Ten_truyen LIKE '%$timkiem%'";
-    $query_timkiem = mysqli_query($conn, $sql_timkiem);
+if (isset($_GET['idTL'])) {
+    $theloai = $_GET['idTL'];
+    $kq = mysqli_query($conn,  "SELECT * FROM category WHERE IDThe_loai =$theloai ");
+    $row = mysqli_fetch_array($kq);
 }
 ?>
     <?php include("../../Pages/Home/header.php") ?>
@@ -23,18 +22,21 @@ if (isset($_GET['timkiem'])) {
     <!-- main-container -->
     <div class="main-container">
         <div class="khungtruyen">
-
+        
             <div class="format-khungtruyen">
                 <div class="head">
-                    <p class="title">Truyện tìm kiếm:</p>
+                    <p class="title"><?php echo $row['Ten_TL'] ?></p>
                 </div>
                 <div class="truyen">
-                <?php while ($row = mysqli_fetch_array($query_timkiem)) { ?>
+                    
+                <?php  
+                $kqTruyen = mysqli_query($conn, "SELECT * FROM truyen WHERE IDThe_loai = $theloai"); 
+                while ($row2 = mysqli_fetch_array($kqTruyen)) { ?>
                     <div class="khung">
                          
-                        <img src="../../assets/picture/<?php echo $row['hinhanh']; ?>" />
+                        <img src="../../assets/picture/<?php echo $row2['hinhanh']; ?>" />
                         <div class="tentruyen">
-                            <a href="../../Pages/Truyen/intro.php?id=<?php echo $row['IDtruyen']; ?>" class="tenTruyen"><?php echo $row['Ten_truyen']; ?></a>
+                            <a href="../../Pages/Truyen/intro.php?id=<?php echo $row2['IDtruyen']; ?>"><?php echo $row2['Ten_truyen']; ?></a>
                         </div>
                     </div>
                 <?php } ?>

@@ -15,7 +15,7 @@
             $idUser = $row['Id_User'];
             
             // Câu lệnh INSERT không có dấu ',' thừa
-            $sql = "INSERT INTO comments (ID, Id_User, IDtruyen, Ten_User, content) 
+            $sql = "INSERT INTO comment (IDComment, Id_User, IDtruyen, Ten_User, TextComment) 
                     VALUES (NULL, '$idUser', '$IDtruyen', '$Ten_User', '$noidung')";
             mysqli_query($conn, $sql);
             

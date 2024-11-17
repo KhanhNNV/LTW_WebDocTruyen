@@ -77,7 +77,7 @@
     input[type="text"],
     input[type="email"],
     input[type="password"] {
-        width: 100%;
+        width: 95%;
         padding: 10px;
         margin: 5px 0 15px;
         border: 1px solid #ccc;

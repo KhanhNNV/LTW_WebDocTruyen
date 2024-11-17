@@ -1,16 +1,18 @@
 <?php 
     include("../../QL_taikhoan/config.php");
+    session_start();
     if(isset($_GET['id'])){
         $IDtruyen=$_GET['id'];
         $kq=mysqli_query($conn,"SELECT * FROM truyen where IDtruyen=$IDtruyen");
         $row=mysqli_fetch_array($kq);  
-
+        $_SESSION['story_id'] = $IDtruyen;
+        $user_id = $_SESSION['user_id'];
         $category_id = $row['IDThe_loai'];
-        $kq2 = mysqli_query($conn,"SELECT Ten_TL FROM category WHERE Id_TL = $category_id");
+        $kq2 = mysqli_query($conn,"SELECT Ten_TL FROM category WHERE IDThe_loai = $category_id");
         $row2 = mysqli_fetch_array($kq2);
 
         
-        $kq4=mysqli_query($conn,"SELECT ChapID,Tieu_de FROM chaptruyen WHERE IDtruyen=$IDtruyen");
+        $kq4=mysqli_query($conn,"SELECT ChapID,Tieu_de,STT FROM chaptruyen WHERE IDtruyen=$IDtruyen");
         
 
          // Tăng lượt xem
@@ -18,6 +20,7 @@
          mysqli_query($conn, $updateViewQuery);
   
     }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +33,7 @@
     <title>Truyện</title>
     <link rel="stylesheet" href="../../assets/css/intro.css">
     <script src="../../assets/js/jquery-3.7.1.min.js"></script>
+
 </head>
 
 <body>
@@ -58,11 +62,31 @@
                 <h1><?php echo $row['Ten_truyen']; ?></h1>
             </div>
             <div class="buttons">
-                <button><i class="fa-sharp-duotone fa-solid fa-list"></i><a href="#danhsach"> Danh sách
+                <button id="ds"><i class="fa-sharp-duotone fa-solid fa-list"></i><a href="#danhsach"> Danh sách
                         truyện</a></button>
-                <button style="background-color: red;"><i class="fa-sharp-duotone fa-solid fa-heart"></i> Yêu
-                    thích</button>
-                <button style="background-color: green;"> Đọc từ đầu</button>
+
+                        <form action="./add_favorite.php" method="POST">
+                            <button id="like" type="submit" name="favorite">
+                                <i class="fa-sharp-duotone fa-solid fa-heart"></i>
+                                <?php 
+                                    // Kiểm tra xem truyện đã yêu thích hay chưa để hiển thị văn bản phù hợp
+                                    $result_check = mysqli_query($conn, "SELECT IDtruyen FROM yeuthich WHERE IDtruyen = '$IDtruyen' AND Id_User = '$user_id'");
+                                    if (mysqli_num_rows($result_check) > 0) {
+                                        echo "Bỏ yêu thích";
+                                    } else {
+                                        echo "Yêu thích";
+                                    }
+                                ?>
+                            </button>
+                        </form>
+
+                <button id="chap1" >
+                    <?php  $kq5=mysqli_query($conn,"SELECT ChapID,Tieu_de,STT FROM chaptruyen WHERE IDtruyen=$IDtruyen");
+                            $row5=mysqli_fetch_array($kq5) ?>
+                    <a href="../Truyen/Story-Page.php?id=<?php echo $row5['ChapID']; ?> " >
+                        Đọc từ đầu
+                    </a>
+                </button>
             </div>
             <div class="summary">
                 <p style="border-bottom: 1px solid black;"><b>Tóm tắt nội dung:</b></p>
@@ -79,7 +103,7 @@
                     TRUYỆN</a></b></p>
         <?php while($row4=mysqli_fetch_array($kq4)){ ?>
             <a href="../Truyen/Story-Page.php?id=<?php echo $row4['ChapID']; ?>">
-                <div><?php echo $row4['Tieu_de']?></div>
+                <div>Chương <?php echo $row4['STT'];?>: <?php echo $row4['Tieu_de']?></div>
             </a>
         <?php } ?>
         

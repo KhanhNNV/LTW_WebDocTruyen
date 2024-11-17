@@ -5,11 +5,9 @@
 }
 
 #header1 {
-    height: 70px;
     text-align: center;
     color: green;
-    font-size: 20px;
-    background-color: antiquewhite;
+    font-size: 30px;
     font-weight: bold;
 }
 .breadcrumb {
@@ -58,7 +56,7 @@
 
 .container .content {
     
-    background-color: aliceblue;
+    
     font-family: "EB Garamond", serif;
 }
 
@@ -73,7 +71,7 @@
 }
 
 /* Định dạng nút */
-.container button {
+.container .next {
     padding: 10px;
     font-size: 16px;
     width: 120px; /* Cùng chiều rộng */
@@ -83,6 +81,30 @@
     cursor: pointer;
     background-color: #4CAF50;
     color: white;
+}
+.container .next:hover {
+    padding: 10px;
+    font-size: 16px;
+    width: 120px; /* Cùng chiều rộng */
+    height: 40px; /* Cùng chiều cao */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ff6699;
+    color: white;
+}
+
+.disabledNext{
+    background-color: #ccc; /* Màu nền xám nhạt */
+       color: #666; /* Màu chữ xám */
+       cursor: not-allowed; /* Hiển thị biểu tượng cấm */
+       border: 1px solid #aaa; /* Đường viền xám */
+       padding: 10px 20px;
+       border-radius: 5px;
+}
+
+.disabledNext:hover {
+    background-color: #ccc; /* Giữ nguyên khi hover */
 }
 
 /* Định dạng menu */
@@ -118,5 +140,6 @@
    padding: 15px;
     text-align: justify;
 }
+
 
 

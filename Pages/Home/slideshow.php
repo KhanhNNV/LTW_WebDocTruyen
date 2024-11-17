@@ -5,17 +5,17 @@
     <div class="list-img">
         <img src="../../assets/picture/slider/271120231632-1701077559-ginger-sunny-just-living-photo-collage-facebook-cover.jpg"
             alt="img1">
-        <div class="text">Truyện hot</div>
+        
     </div>
 
     <div class="list-img">
         <img src="../../assets/picture/slider/LPKHpobNRrKo3QQH7ObO.jpg" alt="img2">
-        <div class="text">Truyện hot</div>
+        
     </div>
 
     <div class="list-img">
         <img src="../../assets/picture/slider/One Piece - 10 bộ Manga hay nhất mọi thời đại.png" alt="img3">
-        <div class="text">Truyện hot</div>
+        
     </div>
 
     <!-- Next and previous buttons -->

@@ -1,5 +1,6 @@
-<?php 
+<?php session_start(); 
 include("../QL_taikhoan/config.php");
+
 ?>
 
 <!DOCTYPE html>

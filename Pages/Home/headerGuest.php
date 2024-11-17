@@ -19,39 +19,26 @@
                 // Lấy dữ liệu từ CSDL để hiển thị menu thể loại
                 $sql_TL = "SELECT * FROM category ORDER BY Ten_TL ASC";
                 $result_TL = mysqli_query($conn, $sql_TL);
-                while ($row_TL = mysqli_fetch_assoc($result_TL)) {
-                    echo '<li><a href="#" class="">'. $row_TL['Ten_TL']. '</a></li>';
-                }
+                while ($row_TL = mysqli_fetch_assoc($result_TL)) { ?>
+                    <li><a href="/Pages/Truyen/trangTheLoai.php?idTL=<?php echo $row_TL['IDThe_loai'] ?>"> <?php echo $row_TL['Ten_TL'];?> </a></li>
+                <?php }
                 ?>
-            </ul>
+                </ul>
 
         </li>
         <li>
-            <a href="#" class="">
+            <a href="/Pages/Truyen/favorite.php" class="toggle">
                 <i class="fa-solid fa-heart"></i>
                 Yêu thích
             </a>
         </li>
-        <li>
-            <a href="#" class="">
-                <i class="fa-solid fa-eye"></i>
-                Xem nhiều
-            </a>
-        </li>
-        <li>
-            <a href="#" class="">
-                <i class="fa-solid fa-upload"></i>
-                Mới đăng
-            </a>
-        </li>
+        
     </ul>
 
     <div class="search">
         <form >
             <input class="search-input" type="text" placeholder="Tìm kiếm..." />
-            <button>
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
+            <i class="fa-solid fa-magnifying-glass"></i>
             
         </form>
 

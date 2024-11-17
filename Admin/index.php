@@ -195,7 +195,7 @@ $count_ds = mysqli_num_rows($result_ds);
     <div class="container">
         <nav>
             <!-- <a href="manage_accounts.php">Quản lý tài khoản</a> -->
-            <a href="manage_stories.php">Quản lý truyện</a>
+            <a href="/Admin/QL_truyen/bangchon.php">Quản lý truyện</a>
             <div class="dropdown">
                 <a href="#">Quản lý thể loại truyện</a>
                 <div class="dropdown-content">
@@ -204,6 +204,7 @@ $count_ds = mysqli_num_rows($result_ds);
                 </div>
             </div>
             <a href="../QL_taikhoan/logout.php">Đăng xuất</a>
+            
         </nav>
 
         <div class="content">
@@ -245,7 +246,7 @@ $count_ds = mysqli_num_rows($result_ds);
                 <?php
                 while ($row = mysqli_fetch_assoc($result_ds)) {
                     echo "<tr>";
-                    echo "<td>". $row['Id_TL']. "</td>";
+                    echo "<td>". $row['IDThe_loai']. "</td>";
                     echo "<td>". $row['Ten_TL']. "</td>";
                     echo "</tr>";
                 }
