@@ -1,49 +1,35 @@
 <?php
-$link = mysqli_connect('localhost', 'root', '', 'web_doctruyen') or die("Kết nối thất bại: " . mysqli_connect_error());
+include("../../QL_taikhoan/config.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_id'])) {
     $delete_id = $_POST['delete_id'];
-
-    
-    $delete_id = mysqli_real_escape_string($link, $delete_id);
-
-   
+    $delete_id = mysqli_real_escape_string($conn, $delete_id);
     $deleteQuery = "DELETE FROM truyen WHERE IDtruyen = '$delete_id'";
-    if (mysqli_query($link, $deleteQuery)) {
+    if (mysqli_query($conn, $deleteQuery)) {
         echo "<script>alert('Truyện đã được xóa thành công'); window.location.href='viewtruyen.php';</script>";
     } else {
         echo "<script>alert('Lỗi khi xóa truyện');</script>";
     }
 }
 
-
 $categoryQuery = "SELECT IDThe_loai, Ten_TL FROM category";
-$categoryResult = mysqli_query($link, $categoryQuery);
-
-
+$categoryResult = mysqli_query($conn, $categoryQuery);
 $selectedCategory = isset($_GET['theloai']) ? (int)$_GET['theloai'] : 0;
-
-
-$sd = 5; 
-$page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1; 
-$start = ($page - 1) * $sd; 
-
+$sd = 5;
+$page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
+$start = ($page - 1) * $sd;
 
 if ($selectedCategory > 0) {
     $comicQuery = "SELECT * FROM truyen WHERE IDThe_loai = $selectedCategory LIMIT $start, $sd";
 } else {
     $comicQuery = "SELECT * FROM truyen LIMIT $start, $sd";
 }
-$comicResult = mysqli_query($link, $comicQuery);
-
-
+$comicResult = mysqli_query($conn, $comicQuery);
 $totalComicsQuery = $selectedCategory > 0
     ? "SELECT COUNT(*) FROM truyen WHERE IDThe_loai = $selectedCategory"
     : "SELECT COUNT(*) FROM truyen";
-$totalComicsResult = mysqli_query($link, $totalComicsQuery);
+$totalComicsResult = mysqli_query($conn, $totalComicsQuery);
 $totalComics = mysqli_fetch_row($totalComicsResult)[0];
-
-
 $totalPages = ceil($totalComics / $sd);
 ?>
 
@@ -55,7 +41,6 @@ $totalPages = ceil($totalComics / $sd);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý Truyện</title>
     <style>
-       
         body {
             font-family: Arial, sans-serif;
             background-color: #eef3f8;
@@ -108,35 +93,35 @@ $totalPages = ceil($totalComics / $sd);
         }
 
         table {
-    width: 100%;
-    border-collapse: collapse; 
-    margin-top: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid #ddd; 
-}
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
 
-th, td {
-    padding: 15px;
-    text-align: center;
-    border: 1px solid #ddd; 
-    font-size: 16px;
-}
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
 
-th {
-    background-color: #007bff;
-    color: #fff;
-}
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
 
-tr:hover {
-    background-color: #e9f4ff;
-}
+        tr:hover {
+            background-color: #e9f4ff;
+        }
 
         img {
             width: 50px;
@@ -198,12 +183,6 @@ tr:hover {
             color: red;
         }
 
-        .pagination {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .pagination a,
         .pagination .prev,
         .pagination .next {
             margin: 0 5px;
@@ -238,38 +217,36 @@ tr:hover {
         .pagination .next.disabled {
             background-color: #f8f9fa;
         }
+
         .btn-delete {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
 
-.btn-delete:hover {
-    background-color: #c82333;
-    transform: scale(1.05); 
-}
+        .btn-delete:hover {
+            background-color: #c82333;
+            transform: scale(1.05);
+        }
 
-.btn-delete:focus {
-    outline: none; 
-}
+        .btn-delete:focus {
+            outline: none;
+        }
 
-.btn-delete:active {
-    background-color: #bd2130; 
-}
-
+        .btn-delete:active {
+            background-color: #bd2130;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <h2>Danh sách truyện</h2>
-
-        <!-- Form lọc thể loại -->
         <form id="form_loc" name="form_loc" method="get" class="filter-form">
             <label for="theloai">Thể loại:</label>
             <select name="theloai" id="theloai" onChange="form_loc.submit()">
@@ -282,8 +259,6 @@ tr:hover {
                 <?php } ?>
             </select>
         </form>
-
-        <!-- Bảng danh sách truyện -->
         <table>
             <tr>
                 <th>ID truyện</th>
@@ -303,51 +278,27 @@ tr:hover {
                     <td><img src="../../assets/picture/<?php echo $comic['hinhanh']; ?>" alt="Hình ảnh truyện"></td>
                     <td><?php echo $comic['IDThe_loai']; ?></td>
                     <td><?php echo $comic['Tac_gia']; ?></td>
-                    <td><?php echo htmlspecialchars($comic['Tom_tat_ND']); ?></td>
+                    <td><?php echo $comic['Tom_tat']; ?></td>
                     <td><?php echo $comic['Tinh_trang']; ?></td>
-                    <td><a href="editcomic.php?id=<?php echo $comic['IDtruyen']; ?>" class="btn-edit">Sửa</a></td>
+                    <td><a href="edit.php?id=<?php echo $comic['IDtruyen']; ?>" class="btn-edit">Sửa</a></td>
                     <td>
-                        <!-- Form xóa truyện -->
-                        <form method="post" style="display:inline;">
+                        <form method="POST">
                             <input type="hidden" name="delete_id" value="<?php echo $comic['IDtruyen']; ?>">
-                            <button type="submit" onclick="return confirm('Bạn có chắc chắn muốn xóa truyện này?');" class="btn-delete">Xóa</button>
+                            <button type="submit" class="btn-delete">Xóa</button>
                         </form>
                     </td>
                 </tr>
             <?php } ?>
         </table>
-
-        <!-- Phân trang -->
         <div class="pagination">
-            <?php if ($page > 1) { ?>
-                <a href="?page=1&theloai=<?php echo $selectedCategory; ?>" class="prev">« Đầu</a>
-                <a href="?page=<?php echo $page - 1; ?>&theloai=<?php echo $selectedCategory; ?>" class="prev">‹ Lùi</a>
-            <?php } else { ?>
-                <span class="prev disabled">« Đầu</span>
-                <span class="prev disabled">‹ Lùi</span>
-            <?php } ?>
-
             <?php for ($i = 1; $i <= $totalPages; $i++) { ?>
                 <a href="?page=<?php echo $i; ?>&theloai=<?php echo $selectedCategory; ?>"
-                    class="<?php echo ($page == $i) ? 'active' : ''; ?>">
-                    <?php echo $i; ?>
-                </a>
-            <?php } ?>
-
-            <?php if ($page < $totalPages) { ?>
-                <a href="?page=<?php echo $page + 1; ?>&theloai=<?php echo $selectedCategory; ?>" class="next">Tiến ›</a>
-                <a href="?page=<?php echo $totalPages; ?>&theloai=<?php echo $selectedCategory; ?>" class="next">Cuối »</a>
-            <?php } else { ?>
-                <span class="next disabled">Tiến ›</span>
-                <span class="next disabled">Cuối »</span>
+                   class="<?php echo $i == $page ? 'active' : ''; ?>"><?php echo $i; ?></a>
             <?php } ?>
         </div>
-
-        <!-- Thêm truyện mới -->
         <div class="action-links">
-            <a href="newcomic.php" class="add-link">Thêm truyện mới</a>
-            <a href="bangchon.php" class="back-link">Quay lại trang chủ</a>
-            <a href="viewchap.php" class="back-link">Quản lý chap</a>
+            <a href="addtruyen.php" class="add-link">Thêm Truyện</a>
+            <a href="../../admin.php" class="back-link">Quay lại</a>
         </div>
     </div>
 </body>
