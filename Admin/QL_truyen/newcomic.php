@@ -60,23 +60,23 @@
             background-color: #0056b3;
         }
         .form-group #IDThe_loai {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 16px;
-        background-color: #fff;
-        height: 36px; /* Adjusts height to align with inputs */
-}
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #fff;
+            height: 36px;
+        }
         .form-group select {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 16px;
-        background-color: #fff;
-        height: 36px; /* Adjusts height to align with inputs */
-}
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #fff;
+            height: 36px;
+        }
     </style>
 </head>
 <?php
@@ -92,16 +92,15 @@ include("../../QL_taikhoan/config.php");
             </div>
             <div class="form-group">
                 <label for="IDThe_loai">Thể loại</label>
-        <select name="IDThe_loai" id="IDThe_loai" >
-	<?php
-	  $sl1="select *from category";
-	  $kq1=mysqli_query($conn,$sl1);
-      while($d1=mysqli_fetch_array($kq1))
-	  {
-	  ?>
-    <option value="<?php echo $d1["IDThe_loai"];?>"><?php echo $d1["Ten_TL"];?></option>
-    <?php } ?>
-    </select>
+                <select name="IDThe_loai" id="IDThe_loai">
+                    <?php
+                        $sl1 = "select *from category";
+                        $kq1 = mysqli_query($conn, $sl1);
+                        while ($d1 = mysqli_fetch_array($kq1)) {
+                    ?>
+                    <option value="<?php echo $d1["IDThe_loai"]; ?>"><?php echo $d1["Ten_TL"]; ?></option>
+                    <?php } ?>
+                </select>
             </div>
             <div class="form-group">
                 <label for="Tac_gia">Tác giả</label>
@@ -115,7 +114,6 @@ include("../../QL_taikhoan/config.php");
                     <option value="Tạm dừng">Tạm dừng</option>
                 </select>
             </div>
-
             <div class="form-group">
                 <label for="Tom_tat_ND">Tóm tắt nội dung</label>
                 <textarea id="Tom_tat_ND" name="Tom_tat_ND"></textarea>
@@ -124,7 +122,7 @@ include("../../QL_taikhoan/config.php");
                 <label for="hinhanh">Hình Ảnh</label>
                 <input type="file" id="hinhanh" name="hinhanh">
             </div>
-            <div class="form-group" >
+            <div class="form-group">
                 <input type="submit" value="Thêm truyện" id="submit" name="themtruyen">
             </div>
         </form>

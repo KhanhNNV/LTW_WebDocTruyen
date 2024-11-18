@@ -8,7 +8,6 @@ if (isset($_GET['id'])) {
     $d1 = mysqli_fetch_array($result);
 }
 
-// Cập nhật dữ liệu khi form được submit
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
     $ten_truyen = mysqli_real_escape_string($conn, $_POST['Ten_truyen']);
@@ -17,19 +16,14 @@ if (isset($_POST['update'])) {
     $tom_tat = mysqli_real_escape_string($conn, $_POST['Tom_tat_ND']);
     $tinh_trang = mysqli_real_escape_string($conn, $_POST['Tinh_trang']);
 
-    // Kiểm tra nếu người dùng tải lên một hình ảnh mới
     if (isset($_FILES['hinhanh']) && $_FILES['hinhanh']['error'] == 0) {
-        // Xử lý ảnh mới
         $hinhanh = $_FILES['hinhanh']['name'];
         $hinhanh_tmp = $_FILES['hinhanh']['tmp_name'];
         $hinhanh_name = time() . '_' . $hinhanh;
-        $target_dir = "../../assets/picture/"; 
+        $target_dir = "../../assets/picture/";
         $target_file = $target_dir . $hinhanh_name;
-        
-        
-        // Di chuyển ảnh mới vào thư mục 'uploads'
+
         if (move_uploaded_file($hinhanh_tmp, $target_file)) {
-            // Cập nhật thông tin truyện cùng với ảnh mới
             $update_sl = "UPDATE truyen SET 
                 Ten_truyen = '$ten_truyen', 
                 Tac_gia = '$tac_gia', 
@@ -40,7 +34,6 @@ if (isset($_POST['update'])) {
                 WHERE IDtruyen = $id";
         }
     } else {
-        // Cập nhật thông tin truyện mà không thay đổi ảnh
         $update_sl = "UPDATE truyen SET 
             Ten_truyen = '$ten_truyen', 
             Tac_gia = '$tac_gia', 
@@ -50,9 +43,8 @@ if (isset($_POST['update'])) {
             WHERE IDtruyen = $id";
     }
 
-    // Thực thi câu lệnh cập nhật
     if (mysqli_query($conn, $update_sl)) {
-        header('Location: viewtruyen.php'); // Quay lại trang quản lý sau khi cập nhật thành công
+        header('Location: viewtruyen.php');
         exit;
     } else {
         echo "Lỗi cập nhật: " . mysqli_error($conn);
@@ -68,7 +60,6 @@ mysqli_close($conn);
     <meta charset="UTF-8">
     <title>Sửa thông tin truyện</title>
     <style>
-        /* Resetting some default styles */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; padding: 20px; max-width: 1200px; margin: 0 auto; }
         form { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
@@ -81,30 +72,29 @@ mysqli_close($conn);
         img { max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; }
         @media screen and (min-width: 768px) { form { width: 50%; margin: 0 auto; } }
         select[name="Tinh_trang"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-    color: #333;
-    cursor: pointer;
-    appearance: none;
-    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="%23333"><polygon points="0,0 10,0 5,5"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-}
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            color: #333;
+            cursor: pointer;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="%23333"><polygon points="0,0 10,0 5,5"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
 
-select[name="Tinh_trang"]:hover {
-    border-color: #4CAF50;
-}
+        select[name="Tinh_trang"]:hover {
+            border-color: #4CAF50;
+        }
 
-select[name="Tinh_trang"]:focus {
-    border-color: #4CAF50;
-    outline: none;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
-}
-
+        select[name="Tinh_trang"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        }
     </style>
 </head>
 <body>

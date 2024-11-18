@@ -1,4 +1,3 @@
-
 .main-content {
     min-height: auto;
     width: 1000px;
@@ -29,7 +28,6 @@
     position: relative;
 }
 
-
 .chapter-list {
     display: flex;
     width: 1000px;
@@ -43,15 +41,15 @@
 
 .chapter-list a {
     text-decoration: none;
- }
+}
 
- .chapter-list a div {
+.chapter-list a div {
     background-color: #4ac8ff;
     color: white;
     text-align: center;
-    border: 2px solid #007bff; /* Thêm viền xung quanh div */
-    border-radius: 5px; /* Bo góc cho viền nếu muốn */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ cho viền */
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .chapter-list p{
@@ -69,10 +67,10 @@
 }
 
 .chapter-list div:hover {
-    background-color: pink;  /* Thay đổi màu nền khi hover */
-    border-color: pink; /* Chỉ thay đổi màu viền mà không làm thay đổi kích thước */
-    /* Không thay đổi padding hoặc border */
+    background-color: pink;
+    border-color: pink;
 }
+
 .buttons {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -89,8 +87,8 @@
     color: white;
     border-radius: 5px;
     cursor: pointer;
-    
 }
+
 #like {
     text-align: center;
     padding: 10px;
@@ -100,6 +98,7 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
 #chap1 {
     text-align: center;
     padding: 10px;
@@ -114,28 +113,30 @@
     text-decoration: none;
     color: white;
 }
- #ds:hover{
+
+#ds:hover{
     text-align: center;
     border: 2px solid black;
-    background-color:pink;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-#like:hover{
-    text-align: center;
-    border: 2px solid black;
-    background-color:orange;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-#chap1:hover{
-    text-align: center;
-    border: 2px solid black;
-    background-color:greenyellow;
+    background-color: pink;
     color: white;
     border-radius: 5px;
     cursor: pointer;
 }
 
+#like:hover{
+    text-align: center;
+    border: 2px solid black;
+    background-color: orange;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#chap1:hover{
+    text-align: center;
+    border: 2px solid black;
+    background-color: greenyellow;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}

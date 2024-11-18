@@ -1,33 +1,27 @@
 <?php
-// Kết nối cơ sở dữ liệu
 include("../../QL_taikhoan/config.php");
 
-// Kiểm tra nếu ID Chap được truyền vào để chỉnh sửa
 if (isset($_GET['id'])) {
     $ChapID = $_GET['id'];
-    // Lấy thông tin của chap cần sửa
     $sql = "SELECT * FROM chaptruyen WHERE ChapID = '$ChapID'";
     $result = mysqli_query($conn, $sql);
     $chap = mysqli_fetch_array($result);
 }
 
-// Cập nhật dữ liệu khi form được submit
 if (isset($_POST['update'])) {
     $ChapID = $_POST['ChapID'];
     $Tieu_de = mysqli_real_escape_string($conn, $_POST['Tieu_de']);
     $STT = mysqli_real_escape_string($conn, $_POST['STT']);
     $Noi_dung = mysqli_real_escape_string($conn, $_POST['Noi_dung']);
 
-    // Cập nhật thông tin chap
     $update_sql = "UPDATE chaptruyen SET 
                     Tieu_de = '$Tieu_de', 
                     STT = '$STT', 
                     Noi_dung = '$Noi_dung' 
                     WHERE ChapID = '$ChapID'";
 
-    // Thực thi câu lệnh cập nhật
     if (mysqli_query($conn, $update_sql)) {
-        header('Location: viewchap.php'); // Quay lại trang quản lý sau khi cập nhật thành công
+        header('Location: viewchap.php');
         exit;
     } else {
         echo "Lỗi cập nhật: " . mysqli_error($conn);
@@ -44,7 +38,6 @@ mysqli_close($conn);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sửa Chap Truyện</title>
     <style>
-        /* CSS giống như trong file editcomic.php */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: Arial, sans-serif;
@@ -116,7 +109,7 @@ mysqli_close($conn);
 
     <script src="https://cdn.ckeditor.com/4.22.1/basic/ckeditor.js"></script>
     <script>
-        CKEDITOR.replace('Noi_dung'); // Tích hợp CKEditor cho textarea
+        CKEDITOR.replace('Noi_dung');
     </script>
 </body>
 </html>

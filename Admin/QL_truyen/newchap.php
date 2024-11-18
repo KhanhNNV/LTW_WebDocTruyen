@@ -8,94 +8,90 @@ include("../../QL_taikhoan/config.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thêm Chap Mới</title>
     <style>
-    body {
-        font-family: Arial, sans-serif;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #f0f0f5;
-        height: 100vh;
-        margin: 0;
-    }
-    .form-container {
-        background-color: #ffffff;
-        padding: 20px 30px;
-        width: 100vw; /* Giữ chiều rộng toàn màn hình */
-        height: 100vh; /* Giữ chiều cao toàn màn hình */
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 0;
-        box-sizing: border-box;
-        overflow-y: auto; /* Đảm bảo cuộn dọc khi cần */
-    }
-    .form-container h2 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 20px;
-        font-size: 24px;
-        font-weight: bold;
-    }
-    .form-group {
-        margin-bottom: 15px;
-    }
-    .form-group label {
-        display: block;
-        color: #333;
-        font-weight: bold;
-        margin-bottom: 10px; /* Khoảng cách đồng đều */
-        font-size: 14px;
-    }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-        width: 100%;
-        padding: 10px; /* Đệm trong lớn hơn một chút */
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 14px;
-        box-sizing: border-box;
-        transition: border-color 0.3s;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-        border-color: #007bff;
-        outline: none;
-        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    }
-    .form-group textarea {
-        height: 120px; /* Chiều cao cố định cho các textarea */
-        resize: none; /* Không cho phép thay đổi kích thước */
-    }
-    
-    #submit {
-    width: 50%; /* Giảm chiều ngang, chỉ chiếm 50% của container */
-    padding: 8px; /* Giữ đệm trong */
-    background-color: #007bff;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px; /* Kích thước chữ vừa phải */
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.2s;
-    margin: 0 auto; /* Căn giữa nút trong container */
-    display: block; /* Đảm bảo nút là khối để căn giữa */
-    }
-    #submit:hover {
-        background-color: #0056b3;
-        transform: translateY(-2px);
-    }
-    #submit:active {
-        background-color: #004085;
-        transform: translateY(0);
-    }
-
-    /* Đảm bảo tất cả select có cùng kích thước */
-    .form-container .form-group select {
-        height: 42px;
-    }
-</style>
-
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f5;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px 30px;
+            width: 100vw;
+            height: 100vh;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 0;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+        .form-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        .form-group textarea {
+            height: 120px;
+            resize: none;
+        }
+        #submit {
+            width: 50%;
+            padding: 8px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            margin: 0 auto;
+            display: block;
+        }
+        #submit:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        #submit:active {
+            background-color: #004085;
+            transform: translateY(0);
+        }
+        .form-container .form-group select {
+            height: 42px;
+        }
+    </style>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.ckeditor.com/4.22.1/basic/ckeditor.js"></script>
 </head>
@@ -137,7 +133,7 @@ include("../../QL_taikhoan/config.php");
         </form>
     </div>
     <script>
-        CKEDITOR.replace('Noi_dung'); // Tích hợp CKEditor cho textarea
+        CKEDITOR.replace('Noi_dung');
     </script>
 </body>
 </html>

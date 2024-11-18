@@ -1,8 +1,8 @@
 <?php
 include("../../QL_taikhoan/config.php");
-// Xử lý yêu cầu xóa chương
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ChapID'])) {
-    $ChapID = (int)$_POST['ChapID']; // Lấy ChapID từ form
+    $ChapID = (int)$_POST['ChapID'];
     $deleteQuery = "DELETE FROM chaptruyen WHERE ChapID = $ChapID";
 
     if (mysqli_query($conn, $deleteQuery)) {
@@ -12,29 +12,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ChapID'])) {
     }
 }
 
-// Lấy giá trị của bộ lọc truyện và trang hiện tại
 $selectedComic = isset($_GET['comic_filter']) ? (int)$_GET['comic_filter'] : 0;
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 if ($page < 1) $page = 1;
 
-// Số chương trên mỗi trang
 $chaptersPerPage = 10;
 
-// Đếm tổng số chương phù hợp
 $chapterCountQuery = $selectedComic
     ? "SELECT COUNT(*) as total FROM chaptruyen WHERE IDtruyen = $selectedComic"
     : "SELECT COUNT(*) as total FROM chaptruyen";
 $resultCount = mysqli_query($conn, $chapterCountQuery);
 $totalChapters = mysqli_fetch_assoc($resultCount)['total'];
 
-// Tính tổng số trang
 $totalPages = ceil($totalChapters / $chaptersPerPage);
 if ($page > $totalPages) $page = $totalPages;
 
-// Tính vị trí bắt đầu
 $offset = ($page - 1) * $chaptersPerPage;
 
-// Lấy dữ liệu chương
 $chapterQuery = $selectedComic
     ? "SELECT * FROM chaptruyen WHERE IDtruyen = $selectedComic ORDER BY Ngay_CN DESC LIMIT $offset, $chaptersPerPage"
     : "SELECT * FROM chaptruyen ORDER BY Ngay_CN DESC LIMIT $offset, $chaptersPerPage";
@@ -169,15 +163,11 @@ $result = mysqli_query($conn, $chapterQuery);
 <body>
     <div class="container">
         <h2>Danh sách các chương</h2>
-
-        <!-- Nút Thêm Chương và Quay Lại -->
         <div style="text-align: center; margin:20px;">
             <a href="newchap.php?comic_filter=<?php echo $selectedComic; ?>" class="btn-add">Thêm chap mới</a>
             <a href="bangchon.php" class="btn-back">Quay Lại</a>
             <a href="viewtruyen.php" class="btn-back">Quản lý truyện</a>
         </div>
-
-        <!-- Filter Form -->
         <form id="form_loc" name="form_loc" method="get" class="filter-form">
             <label for="comic_filter">Chọn Truyện:</label>
             <select name="comic_filter" id="comic_filter" onChange="form_loc.submit()">
@@ -194,8 +184,6 @@ $result = mysqli_query($conn, $chapterQuery);
                 <?php } ?>
             </select>
         </form>
-
-        <!-- Chapter Table -->
         <table>
             <thead>
                 <tr>
@@ -234,8 +222,6 @@ $result = mysqli_query($conn, $chapterQuery);
                 } ?>
             </tbody>
         </table>
-
-        <!-- Pagination -->
         <div class="pagination">
             <?php if ($page > 1): ?>
                 <a href="?comic_filter=<?php echo $selectedComic; ?>&page=<?php echo $page - 1; ?>">« Trước</a>
@@ -254,7 +240,6 @@ $result = mysqli_query($conn, $chapterQuery);
     </div>
 </body>
 </html>
-
 <?php
 mysqli_close($conn);
 ?>
