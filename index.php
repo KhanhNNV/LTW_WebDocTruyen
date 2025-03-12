@@ -20,7 +20,7 @@
 
     <div id="main">
         <!-- include leftmenu -->
-        <?php include("./Pages/Home/left-menu.php") ?>
+        <?php include("./Pages/Home/left-menuGuest.php") ?>
 
         <!-- Slide show -->
         <?php include("./Pages/Home/slideshow.php") ?>

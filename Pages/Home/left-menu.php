@@ -6,7 +6,7 @@
     </button>
     <div id="left-menu">
         <ul>
-            <li><a href=".../../User/index.php" class="">
+            <li><a href="../../User/index.php" class="">
                     <i class="fa-solid fa-house"></i>
                     Trang chủ
                 </a></li>
